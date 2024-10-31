@@ -10,5 +10,6 @@ void    test_ft_toupper(void);
 void    test_ft_isdigit(void);
 void    test_ft_isascii(void);
 void    test_ft_strlen(void);
+void    test_ft_strnstr(void);
 
 #endif // TESTS_H

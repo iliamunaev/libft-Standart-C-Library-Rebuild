@@ -2,3 +2,5 @@ temp/
 *.o
 *.a
 .vscode/
+obj/
+*.sh

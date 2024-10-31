@@ -1,7 +1,7 @@
-#include "test42lib/test42lib.h"
+#include "../test42lib/test42lib.h"
 #include "../libft.h"
 
-void	test_ft_isprint()
+void	test_ft_isprint(void)
 {
     // Test printble chars
     ASSERT_EQUAL_INT(1, ft_isprint(32), "test_ft_isprint_SP_32");

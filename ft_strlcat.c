@@ -14,25 +14,34 @@
  */
 
 #include <string.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	dest_len;
-	size_t	src_len;
-	size_t	i;
+	size_t	destl;
+	size_t	srcl;
+	size_t	fspace;
+	char	*d;
+	const char	*s;
 
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-		return (src_len);
-	while ((i < size - 1) && *src != '\n')
+	 destl = ft_strlen(dest);
+	 srcl = ft_strlen(src);
+	 fspace = size - destl;
+	 d = dest + destl; // pointer to the end of dest
+	 s = src; // pointer for iteration
+	/* If there's no space at all, return size + length of src */
+	if (size <= destl)
+		return (size + srcl);
+	/* Concatenate src to dest */
+	while (*s != '\0' && fspace > 1)
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		*d++ = *s++;
+		fspace--;
 	}
-	dest[dest_len + 1] = '\n';
-	return (dest_len + src_len);
+	/* Null-terminate the result */
+	*d = '\0';
+	/* Return the length of dest plus src (total length it tried to create) */
+	return (destl + srcl);
 }
+
+

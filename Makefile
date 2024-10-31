@@ -1,4 +1,3 @@
-# Name of the library
 NAME = libft.a
 
 CC = cc
@@ -9,10 +8,12 @@ CC = cc
 # -Werror : Make all warnings into errors
 CFLAGS = -Wall -Wextra -Werror
 
+# Source and object directories
 SRC = $(wildcard *.c)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-OBJ = $(SRC:.c=.o)
-
+# Header file
 HEADER = libft.h
 
 # Default rule to create the library
@@ -25,16 +26,21 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-# Rule to compile source files into object files
-%.o: %.c $(HEADER)
+# Rule to compile source files into object files in the obj directory
+$(OBJ_DIR)/%.o: %.c $(HEADER) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I. -c $< -o $@
+
+# Ensure the obj directory exists
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 # Phony targets to prevent make from thinking these are files
 .PHONY: all clean fclean re
 
-# Clean object files
+# Clean object files and directory
 clean:
 	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 # Clean all generated files (including the library)
 fclean: clean

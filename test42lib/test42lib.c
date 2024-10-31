@@ -21,11 +21,11 @@ void	ASSERT_EQUAL_INT(int exp_int, int act_int)
 * Compares two strings value: expected to actual
 */
 
-void	ASSERT_EQUAL_STR(const char *exp_str, const char *act_str)
+void	ASSERT_EQUAL_STR(const char *act_str, const char *exp_str)
 {
-	if (strcmp(exp_str, act_str) == 0)
+	if (strcmp(act_str, exp_str) == 0)
 	{
-		printf("PASS\n");
+		printf("PASS.\n");
 	}
 	else
 	{
@@ -47,5 +47,20 @@ void	ASSERT_EQUAL_CHAR(int exp_char, int act_char)
 	else
 	{
 		printf("!-----FAIL-----!: (expected %c, got %c)\n", exp_char, act_char);
+	}
+}
+
+/*
+* Asserts that the given pointer is NULL.
+*/
+void	ASSERT_EQUAL_NULL(const void *ptr)
+{
+	if (ptr == NULL)
+	{
+		printf("PASS.\n");
+	}
+	else
+	{
+		printf("!-----FAIL-----!: (expected NULL, got %p)\n", ptr);
 	}
 }

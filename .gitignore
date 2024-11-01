@@ -3,4 +3,3 @@ temp/
 *.a
 .vscode/
 obj/
-*.sh

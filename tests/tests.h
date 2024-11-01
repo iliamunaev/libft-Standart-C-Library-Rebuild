@@ -11,5 +11,6 @@ void    test_ft_isdigit(void);
 void    test_ft_isascii(void);
 void    test_ft_strlen(void);
 void    test_ft_strnstr(void);
+int     test_ft_strncmp(void);
 
 #endif // TESTS_H

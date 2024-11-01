@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_isprint.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/01 10:23:44 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/01 10:25:16 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../test42lib/test42lib.h"
 #include "../libft.h"
 
 void	test_ft_isprint(void)
 {
     // Test printble chars
-    ASSERT_EQUAL_INT(1, ft_isprint(32), "test_ft_isprint_SP_32");
-    ASSERT_EQUAL_INT(1, ft_isprint(127), "test_ft_isprint_DEL_127");
-    ASSERT_EQUAL_INT(1, ft_isprint('a'), "test_ft_isprint_a");
-    ASSERT_EQUAL_INT(1, ft_isprint('Z'), "test_ft_isprint_Z");
-    ASSERT_EQUAL_INT(1, ft_isprint('@'), "test_ft_isprint_@");
-    ASSERT_EQUAL_INT(1, ft_isprint('}'), "test_ft_isprint_}");
+    ASSERT_EQUAL_INT(1, ft_isprint(32));
+    ASSERT_EQUAL_INT(1, ft_isprint(127));
+    ASSERT_EQUAL_INT(1, ft_isprint('a'));
+    ASSERT_EQUAL_INT(1, ft_isprint('Z'));
+    ASSERT_EQUAL_INT(1, ft_isprint('@'));
+    ASSERT_EQUAL_INT(1, ft_isprint('}'));
 
     // Test unprintble chars
-    ASSERT_EQUAL_INT(0, ft_isprint(31), "test_ft_isprint_US_31");
-    ASSERT_EQUAL_INT(0, ft_isprint(128), "test_ft_isprint_€_128");
+    ASSERT_EQUAL_INT(0, ft_isprint(31));
+    ASSERT_EQUAL_INT(0, ft_isprint(128));
 }
 

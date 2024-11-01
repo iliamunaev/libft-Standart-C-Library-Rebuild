@@ -1,12 +1,6 @@
 #include "../test42lib/test42lib.h"
 #include "tests.h"
 
-
-/*---Add tests functions below------------------------*/
-
-
-/*---End----------------------------------------------*/
-
 int	main(void)
 {
     printf("Running tests...\n\n");
@@ -26,7 +20,7 @@ int	main(void)
 
 	printf("***Running tests for ft_toupper()***\n");
 	test_ft_toupper();
-	
+
 	printf("***Running tests for ft_isdigit()***\n");
 	test_ft_isdigit();
 

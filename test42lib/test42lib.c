@@ -1,5 +1,3 @@
-//#include <stdio.h>
-//#include <string.h>
 #include "test42lib.h"
 
 /*
@@ -63,4 +61,19 @@ void	ASSERT_EQUAL_NULL(const void *ptr)
 	{
 		printf("!-----FAIL-----!: (expected NULL, got %p)\n", ptr);
 	}
+}
+
+void	ASSERT_STRNCMP(const char *s1, const char *s2, size_t n, int expected)
+{
+    int result = ft_strncmp(s1, s2, n);
+    printf("Comparing \"%s\" and \"%s\" with n = %zu:\n", s1, s2, n);
+    
+    if (result == expected)
+    {
+        printf("PASS.\n");
+    }
+    else
+    {
+        printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, result);
+    }
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../test42lib/test42lib.h"
-#include "../libft.h"
 
 void	test_ft_isprint(void)
 {

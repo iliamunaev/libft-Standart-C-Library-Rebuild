@@ -15,9 +15,7 @@
  * Returns the total length of the created string (length of src).
  */
 
-#include <string.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

@@ -12,8 +12,6 @@
 
 /*
  */
-
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -38,10 +36,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		*d++ = *s++;
 		fspace--;
 	}
-	/* Null-terminate the result */
 	*d = '\0';
-	/* Return the length of dest plus src (total length it tried to create) */
 	return (destl + srcl);
 }
-
-

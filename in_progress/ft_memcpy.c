@@ -38,7 +38,7 @@ int	main()
 	
 
 	printf("Dest befor: %s\n", dest);
-	memcpy(dest, src, 3);
+	ft_memcpy(dest+1, src, 3);
 
 	printf("dest after: %s\n", dest);
 

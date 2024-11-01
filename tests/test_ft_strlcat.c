@@ -1,6 +1,4 @@
 #include "../test42lib/test42lib.h"
-#include "../libft.h"
-#include <stdio.h>
 
 void    test_ft_strlcat(void)
 {

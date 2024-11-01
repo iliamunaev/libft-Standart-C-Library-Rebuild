@@ -15,8 +15,6 @@
 * Return nonzero if the character c falls into the tested class, else zero.
 */
 
-//#include <ctype.h>
-
 int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 127);

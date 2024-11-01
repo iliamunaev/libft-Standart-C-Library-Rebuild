@@ -16,21 +16,22 @@
  */
 
 #include <string.h>
-#include <stdio.h>
 
-void	*memset(void *s, int c, size_t n)
+
+void    *ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*buffer;
-	
-	buffer = s;
-	while (n--)
-	{
-		*buffer++ = (unsigned char)c;
-	}
-	return (s);
+    unsigned char   *buffer;
+
+    buffer = s;
+    while (n--)
+    {
+        *buffer++ = (unsigned char)c;
+    }
+    return s;
 }
 
-int	test(void)
+#include <stdio.h>
+int main(void)
 {
     char s[20] = "aaaaaaaaaaaa";
     int c = 'b';
@@ -38,17 +39,9 @@ int	test(void)
 
     printf("S before: %s\n", s);
 
-    memset(s, c, n);
+    ft_memset(s, c, n);  // Use ft_memset
 
     printf("S after: %s\n", s);
 
-    return (0);
+    return 0;
 }
-
-int main(void)
-{
-    test();
-    return (0);
-}
-	
-

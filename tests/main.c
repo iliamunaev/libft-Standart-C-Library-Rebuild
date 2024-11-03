@@ -36,6 +36,8 @@ int	main(void)
 	printf("***Running tests for ft_strncmp()***\n");
 	test_ft_strncmp();
 
+	
+
 	/*---End--------------------------*/
 
     printf("Tests completed.\n");

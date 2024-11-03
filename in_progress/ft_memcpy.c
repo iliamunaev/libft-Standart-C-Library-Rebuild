@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* The function  copies  n bytes from memory area src to memory area dest.
- * Returns a pointer to dest.
+/* 
+ * The function copies n bytes from memory area src to memory area dest.
+ * Return: a pointer to dest.
  */
 
 #include "string.h"

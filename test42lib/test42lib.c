@@ -1,79 +1,76 @@
 #include "test42lib.h"
+#include <stdio.h>
+#include <string.h>
 
-/*
-* Compares two int values: expected to actual.
-*/
-void	ASSERT_EQUAL_INT(int exp_int, int act_int)
+// Integer comparison
+void ASSERT_EQUAL_INT(int expected, int actual)
 {
-	if(exp_int == act_int)
-	{
-		printf("PASS.\n");
-	}
-	else
-	{
-		printf("!-----FAIL-----!: (expected %d, got %d)\n", exp_int, act_int);
-	}
+    if (expected == actual)
+        printf("PASS.\n");
+    else
+        printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, actual);
 }
 
-/*
-* Compares two strings value: expected to actual
-*/
-
-void	ASSERT_EQUAL_STR(const char *act_str, const char *exp_str)
+// String comparison
+void ASSERT_EQUAL_STR(const char *expected, const char *actual)
 {
-	if (strcmp(act_str, exp_str) == 0)
-	{
-		printf("PASS.\n");
-	}
-	else
-	{
-		printf("!-----FAIL-----!: (expected \"%s\", got \"%s\")\n", exp_str, act_str);
-	}
+    if (strcmp(expected, actual) == 0)
+        printf("PASS.\n");
+    else
+        printf("!-----FAIL-----!: (expected \"%s\", got \"%s\")\n", expected, actual);
 }
 
-
-/*
-* Compares two chars: expected to actual
-*/
-
-void	ASSERT_EQUAL_CHAR(int exp_char, int act_char)
+// Character comparison
+void ASSERT_EQUAL_CHAR(char expected, char actual)
 {
-	if(exp_char == act_char)
-	{
-		printf("PASS.\n");
-	}
-	else
-	{
-		printf("!-----FAIL-----!: (expected %c, got %c)\n", exp_char, act_char);
-	}
+    if (expected == actual)
+        printf("PASS.\n");
+    else
+        printf("!-----FAIL-----!: (expected '%c', got '%c')\n", expected, actual);
 }
 
-/*
-* Asserts that the given pointer is NULL.
-*/
-void	ASSERT_EQUAL_NULL(const void *ptr)
+// Null pointer check
+void ASSERT_EQUAL_NULL(const void *ptr)
 {
-	if (ptr == NULL)
-	{
-		printf("PASS.\n");
-	}
-	else
-	{
-		printf("!-----FAIL-----!: (expected NULL, got %p)\n", ptr);
-	}
+    if (ptr == NULL)
+        printf("PASS.\n");
+    else
+        printf("!-----FAIL-----!: (expected NULL, got %p)\n", ptr);
 }
 
-void	ASSERT_STRNCMP(const char *s1, const char *s2, size_t n, int expected)
+// Memory comparison using a while loop
+void ASSERT_EQUAL_MEM(const void *expected, const void *actual, size_t size)
 {
-    int result = ft_strncmp(s1, s2, n);
-    printf("Comparing \"%s\" and \"%s\" with n = %zu:\n", s1, s2, n);
-    
-    if (result == expected)
+    if (memcmp(expected, actual, size) == 0)
     {
         printf("PASS.\n");
     }
     else
     {
-        printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, result);
+        printf("!-----FAIL-----!: (memory comparison failed)\n");
+        const unsigned char *exp = expected;
+        const unsigned char *act = actual;
+        size_t i = 0;
+
+        // Loop through each byte until a mismatch is found
+        while (i < size)
+        {
+            if (exp[i] != act[i])
+            {
+                printf("Mismatch at byte %zu: expected 0x%02x, got 0x%02x\n", i, exp[i], act[i]);
+                break;
+            }
+            i++;
+        }
     }
+}
+
+// Range comparison using strncmp
+void ASSERT_STRNCMP(const char *s1, const char *s2, size_t n, int expected)
+{
+    int result = strncmp(s1, s2, n);
+    if ((result == 0 && expected == 0) || (result < 0 && expected < 0) || (result > 0 && expected > 0))
+        printf("PASS.\n");
+    else
+        printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, result);
 }

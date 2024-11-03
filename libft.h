@@ -2,7 +2,6 @@
 #define LIBFT_H
 
 #include <string.h>
-#include <stdlib.h> // for calloc(), strdup()
 
 /* Character Classification and Conversion Functions */
 

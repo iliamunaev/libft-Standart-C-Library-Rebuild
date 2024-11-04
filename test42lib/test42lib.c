@@ -1,21 +1,38 @@
 #include "test42lib.h"
-#include <stdio.h>
-#include <string.h>
+
 
 // Integer comparison
-void ASSERT_EQUAL_INT(int expected, int actual)
+void    ASSERT_EQUAL_INT(int expected, int actual)
 {
     if (expected == actual)
-        printf("PASS.\n");
+        printf("PASS: (expected %d, got %d)\n", expected, actual);
     else
         printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, actual);
+}
+
+// nonzero return
+void    ASSERT_RETURN_NONZERO(int ret)
+{
+    if (ret != 0 )
+        printf("PASS: (expected 'NONZERO', got '%d')\n", ret);
+    else
+        printf("!-----FAIL-----!: (expected 'NONZERO', got %d)\n", ret);
+}
+
+// zero return
+void    ASSERT_RETURN_ZERO(int ret)
+{
+    if (ret == 0 )
+        printf("PASS: (expected 'ZERO', got '%d')\n", ret);
+    else
+        printf("!-----FAIL-----!: (expected 'ZERO', got %d)\n", ret);
 }
 
 // String comparison
 void ASSERT_EQUAL_STR(const char *expected, const char *actual)
 {
     if (strcmp(expected, actual) == 0)
-        printf("PASS.\n");
+        printf("PASS: (expected \"%s\", got \"%s\")\n", expected, actual);
     else
         printf("!-----FAIL-----!: (expected \"%s\", got \"%s\")\n", expected, actual);
 }
@@ -24,16 +41,25 @@ void ASSERT_EQUAL_STR(const char *expected, const char *actual)
 void ASSERT_EQUAL_CHAR(char expected, char actual)
 {
     if (expected == actual)
-        printf("PASS.\n");
+        printf("PASS: expected '%c', actual '%c'\n", expected, actual);
     else
-        printf("!-----FAIL-----!: (expected '%c', got '%c')\n", expected, actual);
+        printf("!-----FAIL-----!: expected '%c', got '%c'\n", expected, actual);
+}
+
+// Pointer comparison
+void ASSERT_EQUAL_PTR(const void *expected, const void *actual)
+{
+    if (expected == actual)
+        printf("PASS: expected '%p', got '%p'\n", expected, actual);
+    else
+        printf("!-----FAIL-----!: expected '%p', got '%p'\n", expected, actual);
 }
 
 // Null pointer check
 void ASSERT_EQUAL_NULL(const void *ptr)
 {
     if (ptr == NULL)
-        printf("PASS.\n");
+        printf("PASS: (expected NULL, got NULL)\n");
     else
         printf("!-----FAIL-----!: (expected NULL, got %p)\n", ptr);
 }
@@ -43,11 +69,11 @@ void ASSERT_EQUAL_MEM(const void *expected, const void *actual, size_t size)
 {
     if (memcmp(expected, actual, size) == 0)
     {
-        printf("PASS.\n");
+        printf("PASS: memory comparison successful\n");
     }
     else
     {
-        printf("!-----FAIL-----!: (memory comparison failed)\n");
+        printf("!-----FAIL-----!: memory comparison failed\n");
         const unsigned char *exp = expected;
         const unsigned char *act = actual;
         size_t i = 0;
@@ -63,14 +89,4 @@ void ASSERT_EQUAL_MEM(const void *expected, const void *actual, size_t size)
             i++;
         }
     }
-}
-
-// Range comparison using strncmp
-void ASSERT_STRNCMP(const char *s1, const char *s2, size_t n, int expected)
-{
-    int result = strncmp(s1, s2, n);
-    if ((result == 0 && expected == 0) || (result < 0 && expected < 0) || (result > 0 && expected > 0))
-        printf("PASS.\n");
-    else
-        printf("!-----FAIL-----!: (expected %d, got %d)\n", expected, result);
 }

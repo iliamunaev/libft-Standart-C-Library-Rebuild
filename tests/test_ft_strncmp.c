@@ -1,26 +1,31 @@
 #include "../test42lib/test42lib.h"
+#include "tests.h"
 
-int     test_ft_strncmp(void)
+void	test_ft_strncmp(void)
 {
-    // Test 1: Equal strings, full comparison
-    ASSERT_STRNCMP("hello", "hello", 5, 0);
+    // Equal strings, full comparison
+    ASSERT_EQUAL_INT('e' - 'e', ft_strncmp("hive", "hive", 4));
 
-    // Test 2: Different strings, first differing character
-    ASSERT_STRNCMP("hello", "hellp", 5, 'o' - 'p');
+    // Different strings, first differing character
+	ASSERT_EQUAL_INT('e' - 'v', ft_strncmp("hive", "hivv", 4));
 
-    // Test 3: One string shorter than the other
-    ASSERT_STRNCMP("hello", "hel", 5, 'l');
+    // One string shorter than the other
+	ASSERT_EQUAL_INT('e' - 0, ft_strncmp("hive", "hiv", 5));
+	ASSERT_EQUAL_INT(0 - 'e', ft_strncmp("hiv", "hive", 5));
 
-    // Test 4: Case sensitivity
-    ASSERT_STRNCMP("Hello", "hello", 5, 'H' - 'h');
+    // Case sensitivity
+	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 5));
+	ASSERT_EQUAL_INT('h' - 'H', ft_strncmp("hive", "Hive", 5));
 
-    // Test 5: n shorter than string length
-    ASSERT_STRNCMP("hello", "hellp", 3, 0);
+    // 'n' shorter than string length
+	ASSERT_EQUAL_INT('v' - 'v', ft_strncmp("Hive", "hive", 3));
+	ASSERT_EQUAL_INT(-32, ft_strncmp("Hive", "hive", 1));
 
-    // Test 6: Empty string comparison
-    ASSERT_STRNCMP("", "", 5, 0);
-    ASSERT_STRNCMP("hello", "", 5, 'h');
-    ASSERT_STRNCMP("", "hello", 5, -'h');
+	// 'n' is equal zero
+	ASSERT_EQUAL_INT(0, ft_strncmp("Hive", "hive", 0));
 
-    return (0);
+    // Empty string comparison
+	ASSERT_EQUAL_INT(0, ft_strncmp("", "", 5));
+	ASSERT_EQUAL_INT('h' - 0, ft_strncmp("hive", "", 5));
+    ASSERT_EQUAL_INT(0 - 'h', ft_strncmp("", "hive", 5));
 }

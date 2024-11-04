@@ -1,25 +1,28 @@
 #include "../test42lib/test42lib.h"
+#include "tests.h"
 
 void test_ft_strnstr(void)
 {
-    const char *big = "Hello, world!";
-    const char *little = "world";
+    const char  *big = "Hive Helsinki";
+    const char  *little = "Helsinki";
 
-    printf("Case 1: `little` is found within `len`\n");
-    ASSERT_EQUAL_STR(ft_strnstr(big, little, 12), "world!");
+    // 'little' is found within 'len'
+    ASSERT_EQUAL_STR("Helsinki", ft_strnstr(big, little, 15));
 
-    printf("Case 2: `little` is not found within `len`\n");
+    // 'little' is not found within 'len'
     ASSERT_EQUAL_NULL(ft_strnstr(big, little, 5));
+    ASSERT_EQUAL_NULL(ft_strnstr(big, "42", 15));
 
-    printf("Case 3: `little` is an empty string\n");
-    ASSERT_EQUAL_STR(ft_strnstr(big, "", 5), big);
+    // 'little' is an empty string
+    ASSERT_EQUAL_STR(big, ft_strnstr(big, "", 5));
+    ASSERT_EQUAL_STR(big, ft_strnstr(big, "\0", 5));
 
-    printf("Case 4: `big` is empty\n");
-    ASSERT_EQUAL_NULL(ft_strnstr("", "world", 5));
+    // 'big' is empty
+    ASSERT_EQUAL_NULL(ft_strnstr("", "Hive", 5));
 
-    printf("Case 5: `little` is larger than `len`\n");
+    // 'little' is larger than 'len'
     ASSERT_EQUAL_NULL(ft_strnstr(big, little, 3));
 
-    printf("Case 6: Exact match at end boundary\n");
-    ASSERT_EQUAL_STR(ft_strnstr("world!", "world!", 6), "world!");
+    // Exact match at end boundary
+    ASSERT_EQUAL_STR( "Hive", ft_strnstr("Hive", "Hive", 6));
 }

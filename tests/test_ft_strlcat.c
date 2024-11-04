@@ -1,4 +1,5 @@
 #include "../test42lib/test42lib.h"
+#include "tests.h"
 
 void    test_ft_strlcat(void)
 {
@@ -30,13 +31,13 @@ void    test_ft_strlcat(void)
     char dest4[10] = "abc";
     size = 2;
     ASSERT_EQUAL_INT(7, ft_strlcat(dest4, src, size));
-    printf("Before concat (case 4): dest = '%s', src = '%s', size = %zu\n", dest4, src, size);    
+    printf("Before concat (case 4): dest = '%s', src = '%s', size = %zu\n", dest4, src, size);
     printf("After concat (case 4): dest = '%s'\n", dest4);
 
     // Case 5: Buffer size is zero
     char dest5[10] = "abc";
     size = 0;
     ASSERT_EQUAL_INT(5, ft_strlcat(dest5, src, size));
-    printf("Before concat (case 5): dest = '%s', src = '%s', size = %zu\n", dest5, src, size);    
+    printf("Before concat (case 5): dest = '%s', src = '%s', size = %zu\n", dest5, src, size);
     printf("After concat (case 5): dest = '%s'\n", dest5);
 }

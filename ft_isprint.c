@@ -6,13 +6,13 @@
 /*   By: imunaev- <imunaev-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:13:06 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/10/30 15:26:15 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:23:12 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-*  The checks for any printable character including space.
-* Return nonzero if the character c falls into the tested class, else zero.
+* ft_isprint() checks for any printable character including space.
+* Return: nonzero if the character c falls into the tested class, else zero.
 */
 
 int	ft_isprint(int c)

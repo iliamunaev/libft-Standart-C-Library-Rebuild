@@ -1,20 +1,18 @@
 #include "../test42lib/test42lib.h"
+#include "tests.h"
 
 void	test_ft_isalpha(void)
 {
     // Test lowercase letters
-    printf("Test lowercase letters...\n");
-    ASSERT_EQUAL_INT(1, ft_isalpha('a'));
-    ASSERT_EQUAL_INT(1, ft_isalpha('z'));
+    ASSERT_RETURN_NONZERO(ft_isalpha('a'));
+    ASSERT_RETURN_NONZERO(ft_isalpha('z'));
 
     // Test uppercase letters
-    printf("Test uppercase letters...\n");
-    ASSERT_EQUAL_INT(1, ft_isalpha('A'));
-    ASSERT_EQUAL_INT(1, ft_isalpha('Z'));
+    ASSERT_RETURN_NONZERO(ft_isalpha('A'));
+    ASSERT_RETURN_NONZERO(ft_isalpha('Z'));
 
     // Test non-alphabetic characters
-    printf("Test non-alphabetic characters...\n");
-    ASSERT_EQUAL_INT(0, ft_isalpha('1'));
-    ASSERT_EQUAL_INT(0, ft_isalpha('@'));
-    ASSERT_EQUAL_INT(0, ft_isalpha('['));
+    ASSERT_RETURN_ZERO(ft_isalpha('1'));
+    ASSERT_RETURN_ZERO(ft_isalpha('@'));
+    ASSERT_RETURN_ZERO(ft_isalpha('['));
 }

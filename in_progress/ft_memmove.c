@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: imunaev- <imunaev-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:54:35 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/01 12:43:49 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:24:40 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 ** Returns a pointer to dest.
 */
 
-//#include "libft.h"
-
-#include <string.h>
+#include "libft.h"
 
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -30,7 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const unsigned char 	*t;
 
 	d = dest;
-	s = src;    
+	s = src;
 	t = temp;
 	ft_memcpy(temp, s, n);
     while (n--)

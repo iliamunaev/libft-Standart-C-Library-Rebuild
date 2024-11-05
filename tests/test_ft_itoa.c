@@ -1,27 +1,64 @@
 #include "../test42lib/test42lib.h"
 #include "../libft.h"
 
-void	test_ft_itoa(void)
+void    test_ft_itoa(void)
 {
-    ASSERT_EQUAL_STR("0", ft_itoa(0));
+    char *result;
 
-	// max / min
-    ASSERT_EQUAL_STR("2147483647", ft_itoa(2147483647));
-    ASSERT_EQUAL_STR("-2147483648", ft_itoa(2147483648));
+    // Zero
+    result = ft_itoa(0);
+    ASSERT_EQUAL_STR("0", result);
+    free(result);
 
-	// one digit num
-    ASSERT_EQUAL_STR("1", ft_itoa(1));
-    ASSERT_EQUAL_STR("-1", ft_itoa(-1));
-	ASSERT_EQUAL_STR("9", ft_itoa(9));
-    ASSERT_EQUAL_STR("-9", ft_itoa(-9));
+    // Max / Min integers
+    result = ft_itoa(2147483647);
+    ASSERT_EQUAL_STR("2147483647", result);
+    free(result);
 
-	// two digit num
-	ASSERT_EQUAL_STR("10", ft_itoa(10));
-    ASSERT_EQUAL_STR("-10", ft_itoa(-10));
-    ASSERT_EQUAL_STR("99", ft_itoa(99));
-    ASSERT_EQUAL_STR("-99", ft_itoa(-99));
+    result = ft_itoa(-2147483648);
+    ASSERT_EQUAL_STR("-2147483648", result);
+    free(result);
 
-	// many digits num
-    ASSERT_EQUAL_STR("12345", ft_itoa(12345));
-    ASSERT_EQUAL_STR("-12345", ft_itoa(-12345));
+    // One-digit numbers
+    result = ft_itoa(1);
+    ASSERT_EQUAL_STR("1", result);
+    free(result);
+
+    result = ft_itoa(-1);
+    ASSERT_EQUAL_STR("-1", result);
+    free(result);
+
+    result = ft_itoa(9);
+    ASSERT_EQUAL_STR("9", result);
+    free(result);
+
+    result = ft_itoa(-9);
+    ASSERT_EQUAL_STR("-9", result);
+    free(result);
+
+    // Two-digit numbers
+    result = ft_itoa(10);
+    ASSERT_EQUAL_STR("10", result);
+    free(result);
+
+    result = ft_itoa(-10);
+    ASSERT_EQUAL_STR("-10", result);
+    free(result);
+
+    result = ft_itoa(99);
+    ASSERT_EQUAL_STR("99", result);
+    free(result);
+
+    result = ft_itoa(-99);
+    ASSERT_EQUAL_STR("-99", result);
+    free(result);
+
+    // Multi-digit numbers
+    result = ft_itoa(12345);
+    ASSERT_EQUAL_STR("12345", result);
+    free(result);
+
+    result = ft_itoa(-12345);
+    ASSERT_EQUAL_STR("-12345", result);
+    free(result);
 }

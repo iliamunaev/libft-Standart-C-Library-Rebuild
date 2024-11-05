@@ -18,4 +18,9 @@ void	test_ft_strnstr(void);
 void	test_ft_strncmp(void);
 void	test_ft_strrchr(void);
 
+void	test_ft_putchar_fd(void);
+void	test_ft_putstr_fd(void);
+void	test_ft_putendl_fd(void);
+void	test_ft_putnbr_fd(void);
+
 #endif // TESTS_H

@@ -38,6 +38,17 @@ int	main(void)
 	printf("***Running tests for ft_strrchr()***\n");
 	test_ft_strrchr();
 
+	printf("***Running tests for ft_putchar_fd()***\n");
+	test_ft_putchar_fd();
+
+	printf("***Running tests for ft_putstr_fd()***\n");
+	test_ft_putstr_fd();
+
+	printf("***Running tests for ft_putendl_fd()***\n");
+	test_ft_putendl_fd();
+
+	printf("***Running tests for ft_putnbr_fd()***\n");
+	test_ft_putnbr_fd();
 
 
 	/*---End--------------------------*/

@@ -90,3 +90,19 @@ void ASSERT_EQUAL_MEM(const void *expected, const void *actual, size_t size)
         }
     }
 }
+// File descriptor output comparision
+void	FD_OUTPUT_TO_FILE(void (*func)(int fd), const char *filename)
+{
+	int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
+    {
+        printf("Error creating file: %s", filename);
+        return ;
+    }
+
+	// Redirect output to the file
+    func(fd);
+    close(fd);
+
+	printf("Output saved to: '%s':\n", filename);
+}

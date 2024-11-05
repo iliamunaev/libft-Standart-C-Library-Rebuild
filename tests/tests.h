@@ -2,8 +2,10 @@
 #ifndef TEST_H
 #define TEST_H
 
+#include <stdlib.h>
 #include "../test42lib/test42lib.h"
 #include "../libft.h"
+
 
 void	test_ft_isalpha(void);
 void	test_ft_isprint(void);
@@ -22,5 +24,11 @@ void	test_ft_putchar_fd(void);
 void	test_ft_putstr_fd(void);
 void	test_ft_putendl_fd(void);
 void	test_ft_putnbr_fd(void);
+
+void	test_ft_split(void);
+void	test_ft_itoa(void);
+
+
+
 
 #endif // TESTS_H

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 // Integer comparison
 void ASSERT_EQUAL_INT(int expected, int actual);
@@ -36,5 +37,8 @@ void	ASSERT_STRNCMP(const char *s1, const char *s2, size_t n, int expected);
 
 // File descriptor output comparision
 void	FD_OUTPUT_TO_FILE(void (*func)(int fd), const char *filename);
+
+// Split string
+void    ASSERT_SPLIT_RESULT(char **result, const char *expected[], int expected_count);
 
 #endif // TEST42LIB_H

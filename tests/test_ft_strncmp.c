@@ -18,7 +18,7 @@ void	test_ft_strncmp(void)
 	ASSERT_EQUAL_INT('h' - 'H', ft_strncmp("hive", "Hive", 5));
 
     // 'n' shorter than string length
-	ASSERT_EQUAL_INT('v' - 'v', ft_strncmp("Hive", "hive", 3));
+	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 3));
 	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 1));
 
 	// 'n' is equal zero

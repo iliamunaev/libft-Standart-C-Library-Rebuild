@@ -90,6 +90,7 @@ void ASSERT_EQUAL_MEM(const void *expected, const void *actual, size_t size)
         }
     }
 }
+
 // File descriptor output comparision
 void	FD_OUTPUT_TO_FILE(void (*func)(int fd), const char *filename)
 {
@@ -105,4 +106,29 @@ void	FD_OUTPUT_TO_FILE(void (*func)(int fd), const char *filename)
     close(fd);
 
 	printf("Output saved to: '%s':\n", filename);
+}
+
+// Split string
+void    ASSERT_SPLIT_RESULT(char **result, const char *expected[], int expected_count)
+{
+    int i = 0;
+
+    // Check each substring
+    while (i < expected_count)
+    {
+        ASSERT_EQUAL_STR(expected[i], result[i]);
+        i++;
+    }    
+    // Check for NULL pointer at the end of the arr
+    ASSERT_EQUAL_NULL(result[i]);
+}
+
+void ASSERT_EQUAL_INT_TO_CHAR(char *(*f)(int), int n, const char *expected)
+{
+    char *result = f(n); // Call the function with the integer n
+    if (strcmp(result, expected) == 0)
+        printf("PASS: (expected \"%s\", got \"%s\")\n", expected, result);
+    else
+        printf("!-----FAIL-----!: (expected \"%s\", got \"%s\")\n", expected, result);
+    free(result);
 }

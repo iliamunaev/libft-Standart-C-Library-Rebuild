@@ -8,7 +8,7 @@ CC = cc
 # -Werror : Make all warnings into errors
 CFLAGS = -Wall -Wextra -Werror
 
-# Source and object directories
+# Source files (add your actual .c filenames here, or use wildcard to grab all .c files in the directory)
 SRC = $(wildcard *.c)
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

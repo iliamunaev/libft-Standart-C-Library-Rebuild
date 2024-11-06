@@ -29,19 +29,3 @@ void    *ft_memset(void *s, int c, size_t n)
     }
     return s;
 }
-
-#include <stdio.h>
-int main(void)
-{
-    char s[20] = "aaaaaaaaaaaa";
-    int c = 'b';
-    size_t n = 5;  // Set only the first 5 characters to 'b'
-
-    printf("S before: %s\n", s);
-
-    ft_memset(s, c, n);  // Use ft_memset
-
-    printf("S after: %s\n", s);
-
-    return 0;
-}

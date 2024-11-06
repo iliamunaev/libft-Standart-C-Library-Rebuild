@@ -30,24 +30,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-#include "stdio.h"
-int	main()
-{
-	char dest[10] = "aaaaaaaaaa";
-	char src[10] = "bcdefg";
-	
-
-	printf("Dest befor: %s\n", dest);
-	ft_memcpy(dest+1, src, 3);
-
-	printf("dest after: %s\n", dest);
-
-	return (0);
-}
-
-
-
-
-
-

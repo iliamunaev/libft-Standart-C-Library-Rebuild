@@ -21,24 +21,3 @@ void    *ft_memchr(const void *s, int c, size_t n)
     }
     return (NULL);
 }
-
-#include <stdio.h>
-
-int main()
-{
-    char data[] = "Hello, world!";
-    char c = 'o';
-    size_t n = 10; // Only search in the first 10 bytes
-
-    char *result = ft_memchr(data, c, n);
-    if (result != NULL)
-    {
-        printf("Character '%c' found at position: %ld\n", c, result - data);
-    }
-    else
-    {
-        printf("Character '%c' not found in the first %zu bytes.\n", c, n);
-    }
-
-    return 0;
-}

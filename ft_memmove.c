@@ -19,34 +19,27 @@
 
 #include "libft.h"
 
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char	*d;
-    const unsigned char	*s;
-    unsigned char	temp[n];
-	const unsigned char 	*t;
+    unsigned char *d = (unsigned char *)dest;
+    const unsigned char *s = (const unsigned char *)src;
 
-	d = dest;
-	s = src;
-	t = temp;
-	ft_memcpy(temp, s, n);
-    while (n--)
+    if (d == s || n == 0)
+        return dest;
+
+    if (d < s)
     {
-        *d++ = *t++;
+        // Non-overlapping or forward copy
+        while (n--)
+            *d++ = *s++;
     }
-    return (dest);
-}
-
-#include <stdio.h>
-int main()
-{
-    unsigned char d[10] = "aaa bbbbb";
-    const unsigned char *s = d + 4; // Example overlap scenario
-
-    printf("Dest before: %s\n", d);
-    ft_memmove(d, s, 7); // Moving "bbbbb" over "aaa "
-    printf("Dest after: %s\n", d);
-
-    return 0;
+    else
+    {
+        // Overlapping regions, copy backwards one byte at a time
+        d += n;
+        s += n;
+        while (n--)
+            *--d = *--s;
+    }
+    return dest;
 }

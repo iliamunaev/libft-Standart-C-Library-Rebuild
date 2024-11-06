@@ -26,23 +26,3 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
     return (0);
 }
 
-
-
-#include <stdio.h>
-
-int main()
-{
-    char arr1[] = {1, 2, 3, 4, 5};
-    char arr2[] = {1, 2, 3, 4, 6};
-
-    int result = ft_memcmp(arr1, arr2, 5);
-
-    if (result < 0)
-        printf("arr1 is less than arr2.\n");
-    else if (result > 0)
-        printf("arr1 is greater than arr2.\n");
-    else
-        printf("arr1 is equal to arr2.\n");
-
-    return 0;
-}

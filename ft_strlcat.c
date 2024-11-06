@@ -16,26 +16,26 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	destl;
-	size_t	srcl;
-	size_t	fspace;
-	char	*d;
-	const char	*s;
+	size_t	destl = ft_strlen(dest);
+	size_t	srcl = ft_strlen(src);
+	size_t	i = 0;
 
-	 destl = ft_strlen(dest);
-	 srcl = ft_strlen(src);
-	 fspace = size - destl;
-	 d = dest + destl; // pointer to the end of dest
-	 s = src; // pointer for iteration
-	/* If there's no space at all, return size + length of src */
+	// If size is 0, return length of src plus length of dest (without altering dest)
+	if (size == 0)
+		return (destl + srcl);
+
+	// If size <= destl, return size + srcl directly without modifying dest
 	if (size <= destl)
 		return (size + srcl);
-	/* Concatenate src to dest */
-	while (*s != '\0' && fspace > 1)
+
+	// Start appending src to dest from where dest ends
+	while (src[i] && (destl + i) < (size - 1))
 	{
-		*d++ = *s++;
-		fspace--;
+		dest[destl + i] = src[i];
+		i++;
 	}
-	*d = '\0';
+	dest[destl + i] = '\0';  // Null-terminate
+
+	// Return the combined length of initial dest and full src
 	return (destl + srcl);
 }

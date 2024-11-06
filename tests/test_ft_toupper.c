@@ -1,17 +1,16 @@
-#include "../test42lib/test42lib.h"
-#include "tests.h"
+#include <ctype.h>
+#include "../libft.h"
+#include "../imtest42/imtest42.h"
 
-void    test_ft_toupper(void)
+void test_ft_toupper(void)
 {
-    // Test lowcase a, z
-    ASSERT_EQUAL_CHAR('A', ft_toupper('a'));
-    ASSERT_EQUAL_CHAR('Z', ft_toupper('z'));
+    int c;
 
-    // Test uppercase A, Z
-    ASSERT_EQUAL_CHAR('A', ft_toupper('A'));
-    ASSERT_EQUAL_CHAR('Z', ft_toupper('Z'));
-
-    // Test non-alpha
-    ASSERT_EQUAL_CHAR('@', ft_toupper('@'));
-    ASSERT_EQUAL_CHAR('!', ft_toupper('!'));
+    // Test 0 to 127 ASCII values
+    for (c = 0; c <= 127; c++)
+    {
+        int result_ft = ft_toupper(c);
+        int result_std = toupper(c);
+        IM_ASSERT_INT_EQUAL(result_ft, result_std);
+    }
 }

@@ -1,43 +1,51 @@
-#include "../test42lib/test42lib.h"
-#include "tests.h"
+#include <stdio.h>
+#include <string.h>
+#include "../imtest42/imtest42.h"
+#include "../libft.h"
 
-void    test_ft_strlcat(void)
-{
-    char dest1[10] = "abc";
-    const char *src = "defgh";
-    size_t size;
+void test_ft_strlcat(void) {
+    char dest[20];
+    size_t ret;
 
-    // Case 1: Enough free space for full concatenation
-    size = 10;
-    ASSERT_EQUAL_INT(8, ft_strlcat(dest1, src, size));
-    printf("Before concat (case 1): dest = '%s', src = '%s', size = %zu\n", dest1, src, size);
-    printf("After concat (case 1): dest = '%s'\n", dest1);
+    // Test 1: Basic Append
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, " World", sizeof(dest));
+    IM_ASSERT_STR_EQUAL(dest, "Hello World");  // Expected buffer content
+    IM_ASSERT_INT_EQUAL(ret, 11);              // Expected return value (length of "Hello World")
 
-    // Case 2: Partly free space avalible
-    char dest2[10] = "abc";
-    size = 6;
-    ASSERT_EQUAL_INT(8, ft_strlcat(dest2, src, size));
-    printf("Before concat (case 2): dest = '%s', src = '%s', size = %zu\n", dest2, src, size);
-    printf("After concat (case 2): dest = '%s'\n", dest2);
+    // Test 2: Size Zero (no space in buffer)
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, " World", 0);
+    IM_ASSERT_STR_EQUAL(dest, "Hello");        // dest should remain unchanged
+    IM_ASSERT_INT_EQUAL(ret, 11);              // Expected return value (len of "Hello" + len of " World")
 
-    // Case 3: Free space not enough (size = 0)
-    char dest3[10] = "abc";
-    size = 4;
-    ASSERT_EQUAL_INT(8, ft_strlcat(dest3, src, size));
-    printf("Before concat (case 3): dest = '%s', src = '%s', size = %zu\n", dest3, src, size);
-    printf("After concat (case 3): dest = '%s'\n", dest3);
+    // Test 3: Size Less Than dest Length (no concatenation should occur)
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, " World", 3);
+    IM_ASSERT_STR_EQUAL(dest, "Hello");        // dest should remain unchanged
+    IM_ASSERT_INT_EQUAL(ret, 9);              // Expected return value (total len of "Hello World")
 
-    // Case 4: Free space not enough (size = 2)
-    char dest4[10] = "abc";
-    size = 2;
-    ASSERT_EQUAL_INT(7, ft_strlcat(dest4, src, size));
-    printf("Before concat (case 4): dest = '%s', src = '%s', size = %zu\n", dest4, src, size);
-    printf("After concat (case 4): dest = '%s'\n", dest4);
+    // Test 4: Exact Buffer Size
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, " World", 12);
+    IM_ASSERT_STR_EQUAL(dest, "Hello World");  // Expected buffer content
+    IM_ASSERT_INT_EQUAL(ret, 11);              // Expected return value (len of "Hello World")
 
-    // Case 5: Buffer size is zero
-    char dest5[10] = "abc";
-    size = 0;
-    ASSERT_EQUAL_INT(5, ft_strlcat(dest5, src, size));
-    printf("Before concat (case 5): dest = '%s', src = '%s', size = %zu\n", dest5, src, size);
-    printf("After concat (case 5): dest = '%s'\n", dest5);
+    // Test 5: Insufficient Space (only part of src can fit)
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, " World", 10);
+    IM_ASSERT_STR_EQUAL(dest, "Hello Wor");    // Expected truncated result
+    IM_ASSERT_INT_EQUAL(ret, 11);              // Expected return value (len of "Hello World")
+
+    // Test 6: Empty Source String (no change to dest)
+    strcpy(dest, "Hello");
+    ret = ft_strlcat(dest, "", sizeof(dest));
+    IM_ASSERT_STR_EQUAL(dest, "Hello");        // dest should remain unchanged
+    IM_ASSERT_INT_EQUAL(ret, 5);               // Expected return value (len of "Hello")
+
+    // Test 7: Empty Destination String (copy src into dest)
+    strcpy(dest, "");
+    ret = ft_strlcat(dest, "Hello", sizeof(dest));
+    IM_ASSERT_STR_EQUAL(dest, "Hello");        // Expected result in dest
+    IM_ASSERT_INT_EQUAL(ret, 5);               // Expected return value (len of "Hello")
 }

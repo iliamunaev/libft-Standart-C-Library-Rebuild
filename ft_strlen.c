@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:30:35 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/04 14:29:02 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/06 23:22:04 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
- * The function calculates the length of the string pointed to by s,
- * excluding the terminating null byte ('\0').
- * Returns the number of bytes in the string pointed to by s.
- */
+** ft_strlen() calculates the length of the string pointed to by 's',
+** excluding the terminating null byte ('\0').
+** Return: the number of bytes in the string pointed to by 's'.
+*/
 
- #include "libft.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	count;
-	count = 0;
+	size_t	len;
 
-	while(*s++)
-		count++;
-	return (count);
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }

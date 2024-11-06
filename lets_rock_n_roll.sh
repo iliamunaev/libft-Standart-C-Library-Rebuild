@@ -3,11 +3,17 @@
 LIBFT_DIR="."
 TESTS_DIR="tests"
 
-# Compile each directory by running make
-echo "Compiling libft..."
-(cd "$LIBFT_DIR" && make) || { echo "Error: Failed to compile libft"; exit 1; }
+# Function to compile a directory
+compile() {
+    local dir=$1
+    echo "Cleaning and compiling in $dir..."
+    (cd "$dir" && make clean && make) || { echo "Error: Failed to compile in $dir"; exit 1; }
+}
 
-echo "Compiling tests..."
-(cd "$TESTS_DIR" && make) || { echo "Error: Failed to compile tests"; exit 1; }
+# Compile libft
+compile "$LIBFT_DIR"
+
+# Compile tests
+compile "$TESTS_DIR"
 
 echo "All components compiled successfully."

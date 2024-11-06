@@ -6,27 +6,25 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:40:38 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/01 12:26:55 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/06 23:26:08 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* 
- * The function copies n bytes from memory area src to memory area dest.
- * Return: a pointer to dest.
- */
+/*
+** ft_memcpy() copies 'n' bytes from memory area 'src' to memory area 'dest'.
+** Return: a pointer to 'dest'.
+*/
 
-#include "string.h"
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
 	const unsigned char	*s;
+	unsigned char		*d;
 
-	d = dest;
-	s = src;
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
 	while (n--)
-	{
 		*d++ = *s++;
-	}
 	return (dest);
 }

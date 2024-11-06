@@ -6,46 +6,39 @@ CFLAGS = -Wall -Wextra -Werror
 TARGET = test_me
 
 # Directories
-LIB_DIR = ../test42lib
-LIBFT_DIR = ..
+TEST42_DIR = ../test42lib
+LIBFT_DIR = ..  # Assuming libft.a is in the parent directory
 OBJ_DIR = obj
 
-# Source files
-SRC_TESTS = $(wildcard *.c)
-SRC_LIB = $(wildcard $(LIB_DIR)/*.c)
-SRC_FUNCS = $(wildcard $(LIBFT_DIR)/*.c)
-SRC = $(SRC_TESTS) $(SRC_LIB) $(SRC_FUNCS)
+# Include paths
+INCLUDES = -I$(TEST42_DIR) -I$(LIBFT_DIR)
 
-# Object files (located in obj directory)
+# Source files
+SRC = $(wildcard *.c $(TEST42_DIR)/*.c)
+# Object files
 OBJ = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 
 # Default rule to build the target
-all: $(TARGET)
+all: $(OBJ_DIR) $(TARGET)
 
 # Rule to build the target executable
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft  # Link against libft.a
 
-# Rule to compile .c files from current directory, LIB_DIR, and LIBFT_DIR into obj directory
+# Rule to compile all .c files into .o files in the obj directory
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(LIB_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(LIB_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(LIB_DIR) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(LIBFT_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
-
-# Rule to create obj directory if it doesn't exist
+# Create the obj directory if it doesn't exist
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 # Phony targets for cleaning
 .PHONY: all clean fclean re
 
-# Clean object files and directory
+# Clean object files
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -f $(OBJ)  # Clean individual object files
 
 # Clean all generated files (including the executable)
 fclean: clean

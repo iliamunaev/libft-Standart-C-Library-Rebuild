@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 10:13:06 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/04 13:23:12 by imunaev-         ###   ########.fr       */
+/*   Created: 2024/11/06 11:48:51 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/06 23:21:00 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-* ft_isprint() checks for any printable character including space.
-* Return: nonzero if the character c falls into the tested class, else zero.
+** ft_isprint() checks if 'c' printable character (including space).
+** Return: nonzero if True, else 0.
 */
 
 int	ft_isprint(int c)

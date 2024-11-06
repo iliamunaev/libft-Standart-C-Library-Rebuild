@@ -1,4 +1,4 @@
-NAME = test42lib.a
+NAME = imtest42.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
-HEADER = test42lib.h
+HEADER = imtest42.h
 
 # Default rule to create the library
 all: $(NAME)

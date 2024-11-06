@@ -1,31 +1,59 @@
-#include "../test42lib/test42lib.h"
-#include "tests.h"
+#include <string.h>
+#include "../imtest42/imtest42.h"
+#include "../libft.h"
 
 void	test_ft_strncmp(void)
 {
-    // Equal strings, full comparison
-    ASSERT_EQUAL_INT('e' - 'e', ft_strncmp("hive", "hive", 4));
+    int ret_ft;
+    int ret_std;
 
-    // Different strings, first differing character
-	ASSERT_EQUAL_INT('e' - 'v', ft_strncmp("hive", "hivv", 4));
+    // Test 1: Identical strings
+    ret_ft = ft_strncmp("hello", "hello", 5);
+    ret_std = strncmp("hello", "hello", 5);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 
-    // One string shorter than the other
-	ASSERT_EQUAL_INT('e' - 0, ft_strncmp("hive", "hiv", 5));
-	ASSERT_EQUAL_INT(0 - 'e', ft_strncmp("hiv", "hive", 5));
+    // Test 2: Different strings
+    ret_ft = ft_strncmp("hello", "world", 5);
+    ret_std = strncmp("hello", "world", 5);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 
-    // Case sensitivity
-	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 5));
-	ASSERT_EQUAL_INT('h' - 'H', ft_strncmp("hive", "Hive", 5));
+    // Test 3: Partial comparison
+    ret_ft = ft_strncmp("hello", "helicopter", 3);
+    ret_std = strncmp("hello", "helicopter", 3);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 
-    // 'n' shorter than string length
-	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 3));
-	ASSERT_EQUAL_INT('H' - 'h', ft_strncmp("Hive", "hive", 1));
+    // Test 4: String with null characters
+    ret_ft = ft_strncmp("abc\0def", "abc\0xyz", 7);
+    ret_std = strncmp("abc\0def", "abc\0xyz", 7);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 
-	// 'n' is equal zero
-	ASSERT_EQUAL_INT(0, ft_strncmp("Hive", "hive", 0));
+    // Test 5: One string is prefix of the other
+    ret_ft = ft_strncmp("hello", "hello world", 11);
+    ret_std = strncmp("hello", "hello world", 11);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 
-    // Empty string comparison
-	ASSERT_EQUAL_INT(0, ft_strncmp("", "", 5));
-	ASSERT_EQUAL_INT('h' - 0, ft_strncmp("hive", "", 5));
-    ASSERT_EQUAL_INT(0 - 'h', ft_strncmp("", "hive", 5));
+    // Test 6: Empty strings
+    ret_ft = ft_strncmp("", "", 5);
+    ret_std = strncmp("", "", 5);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
+
+    // Test 7: n is zero
+    ret_ft = ft_strncmp("hello", "world", 0);
+    ret_std = strncmp("hello", "world", 0);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
+
+    // Test 8: Strings differ at last character
+    ret_ft = ft_strncmp("abcd", "abce", 4);
+    ret_std = strncmp("abcd", "abce", 4);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
+
+    // Test 9: Non-ASCII characters
+    ret_ft = ft_strncmp("héllo", "héllö", 5);
+    ret_std = strncmp("héllo", "héllö", 5);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
+
+    // Test 10: Large n value
+    ret_ft = ft_strncmp("hello", "hello", 1000);
+    ret_std = strncmp("hello", "hello", 1000);
+    IM_ASSERT_INT_EQUAL(ret_ft, ret_std);
 }

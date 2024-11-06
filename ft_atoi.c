@@ -1,44 +1,46 @@
- 
- /* The function converts the initial portion of the string pointed to by str to int.
- * Return: the converted value or 0 on error.
- */
- #include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 23:36:33 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/06 23:37:09 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*
+** The function converts the initial portion of the string
+** pointed to by 'str' to 'int'.
+** Return: the converted value or '0' on error.
+*/
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
-    long num = 0;  // Use long to detect overflow
-    int sign = 1;
-    // Skip whitespace characters
-    while (*str == ' ' || *str == '\n' || *str == '\f' || *str == '\r'
-           || *str == '\t' || *str == '\v')
-    {
-        str++;
-    }
+	int	num;
+	int	sign;
 
-    // Handle optional sign
-    if (*str == '-')
-    {
-        sign = -1;
-        str++;
-    }
-    else if (*str == '+')
-    {
-        str++;
-    }
-
-    // Convert digits to integer, checking for overflow
-    while (*str >= '0' && *str <= '9')
-    {
-        num = num * 10 + (*str - '0');
-
-        // Check for overflow or underflow
-        if (num * sign > 2147483647)
-            return 2147483647;
-        if (num * sign < -2147483648)
-            return -2147483648;
-
-        str++;
-    }
-
-    return (int)(num * sign);
+	num = 0;
+	sign = 1;
+	while (*str == ' ' || *str == '\n' || *str == '\f' || *str == '\r'
+		|| *str == '\t' || *str == '\v')
+	{
+		str++;
+	}
+	if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return ((int)(num * sign));
 }

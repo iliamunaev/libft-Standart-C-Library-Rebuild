@@ -1,17 +1,14 @@
-#include "../test42lib/test42lib.h"
+#include "../imtest42/imtest42.h"
 #include "tests.h"
 
 void    test_ft_strlen(void)
 {
-    // Test 'a', 'abc', 'abs def', '123'
-    ASSERT_EQUAL_INT(1, ft_strlen("a"));
-    ASSERT_EQUAL_INT(3, ft_strlen("abc"));
-    ASSERT_EQUAL_INT(7, ft_strlen("abc def"));
-    ASSERT_EQUAL_INT(3, ft_strlen("123"));
+    // Test normal strings
+    IM_ASSERT_INT_EQUAL(ft_strlen("Hello, World!"), 13);
+    IM_ASSERT_INT_EQUAL(ft_strlen(""), 0);
+    IM_ASSERT_INT_EQUAL(ft_strlen("42"), 2);
 
-    // Test empty str
-    ASSERT_EQUAL_INT(0, ft_strlen(""));
-
-    // Test empty str ('\0')
-    ASSERT_EQUAL_INT(0, ft_strlen("\0"));
+    // Test special characters
+    IM_ASSERT_INT_EQUAL(ft_strlen("\n\t\r"), 3);
+    IM_ASSERT_INT_EQUAL(ft_strlen("foo\0bar"), 3);
 }

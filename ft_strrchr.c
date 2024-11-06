@@ -1,30 +1,38 @@
+/* ************************************************************************** */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_strrchr.c									   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: imunaev- <imunaev-@student.hive.fi>		+#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2024/11/06 13:51:58 by imunaev-		  #+#	#+#			 */
+/*   Updated: 2024/11/06 23:30:00 by imunaev-		 ###   ########.fr	   */
+/*																			*/
+/* ************************************************************************** */
+
 /*
- * The strrchr() function locates the last occurrence of c (converted to a char)
- * in the string pointed to by s. The terminating NUL character is
- * considered to be part of the string.
- * Return: a pointer to the byte or a null pointer if c does not occur in the string.
- */
+** strrchr() function locates the last occurrence of 'c'
+** in the string pointed to by 's'. The terminating NUL character is
+** considered to be part of the string.
+** Return: a pointer to the byte, else null pointer.
+*/
+
 #include "libft.h"
 
-char    *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    const char  *tail;
-    size_t  s_len;
+	const char	*tail;
+	size_t		s_len;
 
-    tail = s + ft_strlen(s);
-    s_len = ft_strlen(s);
-    if ((char)c == '\0')
-    {
-        return ((char *)tail);
-    }
-    while (s_len > 0)
-    {
-        if (*tail == c)
-        {
-            return ((char *)tail);
-        }
-        s_len--;
-        tail--;
-    }
-    return (NULL);
+	s_len = ft_strlen(s);
+	tail = s + s_len;
+	if (!(char)c)
+		return ((char *)tail);
+	while (tail != s)
+	{
+		tail--;
+		if (*tail == (char)c)
+			return ((char *)tail);
+	}
+	return (NULL);
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:31:07 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/06 13:39:00 by imunaev-         ###   ########.fr       */
+/*   Created: 2024/11/06 11:17:25 by imunaev-          #+#    #+#             */
+/*   Updated: 2024/11/06 11:20:20 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_tolower() converts upercasw letters to lowercase.
-** Return: lowercase version of 'c', if the conversion was not possible 'c'.
+** ft_isalnum() checks 'c' for an alphanumeric character;
+** it is equivalent to (isalpha(c) || isdigit(c)).
+** Return: nonzero if True, esle 0.
 */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + ('a' - 'A'));
-	return (c);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

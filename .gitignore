@@ -3,3 +3,4 @@ temp/
 *.a
 .vscode/
 obj/
+a.out

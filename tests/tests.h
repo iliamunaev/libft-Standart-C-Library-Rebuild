@@ -30,6 +30,7 @@ void	test_ft_striteri(void);
 void	test_ft_strjoin(void);
 void	test_ft_strlcat(void);
 void	test_ft_strlcpy(void);
+void	test_ft_strmapi(void);
 void	test_ft_strncmp(void);
 void	test_ft_strnstr(void);
 void	test_ft_strrchr(void);

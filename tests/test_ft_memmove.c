@@ -1,5 +1,5 @@
-#include <string.h>   // For comparison with the standard memmove
-#include <stdlib.h>   // For malloc and free
+#include <string.h>
+#include <stdlib.h>
 
 #include "../imtest42/imtest42.h"
 #include "tests.h"

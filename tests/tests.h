@@ -34,6 +34,7 @@ void	test_ft_strmapi(void);
 void	test_ft_strncmp(void);
 void	test_ft_strnstr(void);
 void	test_ft_strrchr(void);
+void	test_ft_strtrim(void);
 void	test_ft_strlen(void);
 void	test_ft_strdup(void);
 void	test_ft_tolower(void);

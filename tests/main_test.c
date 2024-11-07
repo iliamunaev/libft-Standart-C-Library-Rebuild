@@ -99,6 +99,9 @@ int	main(void)
 	printf("\n***Running tests for ft_strmapi()***\n");
 	test_ft_strmapi();
 
+	printf("\n***Running tests for ft_strtrim()***\n");
+	test_ft_strtrim();
+
 	// -----End of tets ----- //
 
     printf("\nTests completed (╥﹏╥)...\n");

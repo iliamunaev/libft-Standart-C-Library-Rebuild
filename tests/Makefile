@@ -1,6 +1,5 @@
 # Compiler settings
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
 # Target executable
 TARGET = test_me
@@ -23,11 +22,11 @@ all: $(OBJ_DIR) $(TARGET)
 
 # Rule to build the target executable
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT_DIR) -lft  # Link against libft.a
+	$(CC) -o $@ $^ -L$(LIBFT_DIR) -lft  # Link against libft.a
 
 # Rule to compile all .c files into .o files in the obj directory
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(INCLUDES) -c $< -o $@
 
 # Create the obj directory if it doesn't exist
 $(OBJ_DIR):

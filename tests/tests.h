@@ -15,6 +15,7 @@ void	test_ft_isalpha(void);
 void	test_ft_isascii(void);
 void	test_ft_isdigit(void);
 void	test_ft_isprint(void);
+void	test_ft_itoa(void);
 void	test_ft_memchr(void);
 void	test_ft_memcmp(void);
 void	test_ft_memcpy(void);

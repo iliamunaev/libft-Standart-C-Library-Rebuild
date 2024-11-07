@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 08:38:14 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 08:38:18 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:52:15 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*sptr;
+	unsigned char	*sptr;
 
-	sptr = (const unsigned char *)s;
+	sptr = (unsigned char *)s;
 	while (n--)
 	{
 		if (*sptr == (unsigned char)c)

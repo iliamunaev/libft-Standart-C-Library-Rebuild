@@ -114,6 +114,10 @@ int	main(void)
 	test_ft_putendl_fd();
 	printf("\n");
 
+	printf("***Running tests for ft_itoa()***\n");
+	test_ft_itoa();
+	printf("\n");
+
 	// -----End of tets ----- //
 
     printf(" Tests completed (╥﹏╥)...\n");

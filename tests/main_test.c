@@ -118,6 +118,10 @@ int	main(void)
 	test_ft_itoa();
 	printf("\n");
 
+	printf("***Running tests for ft_strjoin()***\n");
+	test_ft_strjoin();
+	printf("\n");
+
 	// -----End of tets ----- //
 
     printf(" Tests completed (╥﹏╥)...\n");

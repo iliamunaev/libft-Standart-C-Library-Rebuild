@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 08:51:58 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 08:52:00 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:48:31 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdbool.h>
 
 // String comparison for equality
 void	IM_ASSERT_STR_EQUAL(const char *expected, const char *actual)
@@ -84,15 +85,15 @@ void	IM_ASSERT_INT_NOT_EQUAL(int expected, int actual)
 }
 
 // True value check
-void	IM_ASSERT_TRUE(int value)
+void	IM_ASSERT_TRUE(bool condition)
 {
-	if (value > 0)
+	if (condition)
 	{
-		printf("PASS: (value is greater than zero: %d)\n", value);
+		printf("PASS: (TRUE: value is greater than zero: %d)\n", condition);
 	}
 	else
 	{
-		printf("!-----FAIL-----!: (expected greater than zero, got: %d)\n", value);
+		printf("!-----FAIL-----!: (FALSE: expected greater than zero, got: %d)\n", condition);
 	}
 }
 

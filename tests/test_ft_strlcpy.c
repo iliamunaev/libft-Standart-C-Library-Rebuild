@@ -2,7 +2,8 @@
 #include "../imtest42/imtest42.h"
 #include "../libft.h"
 
-void test_ft_strlcpy(void) {
+void test_ft_strlcpy(void)
+{
     char dest[10];
     size_t ret;
 

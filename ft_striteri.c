@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:54:47 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 13:54:51 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:43:33 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
  * f: The function to apply to each character.
  * Return: None
  */
-
-#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

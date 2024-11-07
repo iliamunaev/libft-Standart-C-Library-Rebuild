@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:36:33 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/06 23:37:09 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:38:29 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 ** pointed to by 'str' to 'int'.
 ** Return: the converted value or '0' on error.
 */
-
-#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

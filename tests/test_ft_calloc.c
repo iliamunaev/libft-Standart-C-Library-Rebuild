@@ -49,7 +49,7 @@ void test_ft_calloc(void)
 
     // Test 5: Memory initialization check
     printf("\nStarting Test 5: Memory initialization check\n");
-    nmemb = 50;
+    nmemb = 10;
     size = sizeof(char);
     ptr_ft = ft_calloc(nmemb, size);
     IM_ASSERT_PTR_NOT_NULL(ptr_ft);
@@ -61,7 +61,7 @@ void test_ft_calloc(void)
 
     // Test 6: Non-zero memory before allocation
     printf("\nStarting Test 6: Non-zero memory before allocation\n");
-    nmemb = 20;
+    nmemb = 10;
     size = sizeof(int);
     ptr_ft = malloc(nmemb * size);
     memset(ptr_ft, 0xFF, nmemb * size); // Set to non-zero

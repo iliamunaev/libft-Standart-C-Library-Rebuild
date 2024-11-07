@@ -105,6 +105,9 @@ int	main(void)
 	printf("\n***Running tests for ft_substr()***\n");
 	test_ft_substr();
 
+	printf("\n***Running tests for t_split()***\n");
+	test_ft_split();
+
 	// -----End of tets ----- //
 
     printf("\nTests completed (╥﹏╥)...\n");

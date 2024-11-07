@@ -1,8 +1,9 @@
 #include "../imtest42/imtest42.h"
 #include "tests.h"
 #include <string.h>   // For comparison with the standard calloc
+#include <stdio.h>    // For printf
 
-void	test_ft_calloc(void)
+void test_ft_calloc(void)
 {
     void *ptr_ft;
     void *ptr_std;
@@ -10,6 +11,7 @@ void	test_ft_calloc(void)
     int cmp_result;
 
     // Test 1: Normal allocation
+    printf("\nStarting Test 1: Normal allocation\n");
     nmemb = 10;
     size = sizeof(int);
     ptr_ft = ft_calloc(nmemb, size);
@@ -22,36 +24,31 @@ void	test_ft_calloc(void)
     free(ptr_std);
 
     // Test 2: Zero elements
+    printf("\nStarting Test 2: Zero elements\n");
     nmemb = 0;
     size = sizeof(int);
     ptr_ft = ft_calloc(nmemb, size);
-    //ptr_std = calloc(nmemb, size);
     IM_ASSERT_PTR_NULL(ptr_ft); // Should be NULL according to your definition
-    // IM_ASSERT_PTR_NULL(ptr_std); // May return NULL or any mem address, see 'man calloc'
     free(ptr_ft);
-    //free(ptr_std);
 
     // Test 3: Zero size
+    printf("\nStarting Test 3: Zero size\n");
     nmemb = 10;
     size = 0;
     ptr_ft = ft_calloc(nmemb, size);
-    //ptr_std = calloc(nmemb, size);
     IM_ASSERT_PTR_NULL(ptr_ft); // Should be NULL according to your definition
-   // IM_ASSERT_PTR_NULL(ptr_std); // May return NULL or any mem address, see 'man calloc'
     free(ptr_ft);
-    //free(ptr_std);
 
     // Test 4: Both zero
+    printf("\nStarting Test 4: Both zero\n");
     nmemb = 0;
     size = 0;
     ptr_ft = ft_calloc(nmemb, size);
-    //ptr_std = calloc(nmemb, size);
     IM_ASSERT_PTR_NULL(ptr_ft); // Should be NULL according to your definition
-   // IM_ASSERT_PTR_NULL(ptr_std); // May return NULL or any mem address, see 'man calloc'
     free(ptr_ft);
-    //free(ptr_std);
 
-    // Test 8: Memory initialization check
+    // Test 5: Memory initialization check
+    printf("\nStarting Test 5: Memory initialization check\n");
     nmemb = 50;
     size = sizeof(char);
     ptr_ft = ft_calloc(nmemb, size);
@@ -62,8 +59,8 @@ void	test_ft_calloc(void)
     }
     free(ptr_ft);
 
-
-    // Test 9: Non-zero memory before allocation
+    // Test 6: Non-zero memory before allocation
+    printf("\nStarting Test 6: Non-zero memory before allocation\n");
     nmemb = 20;
     size = sizeof(int);
     ptr_ft = malloc(nmemb * size);

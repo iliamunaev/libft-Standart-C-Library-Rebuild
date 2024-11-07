@@ -98,9 +98,23 @@ int	main(void)
 	test_ft_toupper();
 	printf("\n");
 
+	printf("***Running tests for ft_putchar_fd()***\n");
+	test_ft_putchar_fd();
+	printf("\n");
+
+	printf("***Running tests for ft_putnbr_fd(()***\n");
+	test_ft_putnbr_fd();
+	printf("\n");
+
+	printf("***Running tests for ft_putstr_fd(()***\n");
+	test_ft_putstr_fd();
+	printf("\n");
+
+	printf("***Running tests for ft_putendl_fd(()***\n");
+	test_ft_putendl_fd();
+	printf("\n");
 
 	// -----End of tets ----- //
-
 
     printf(" Tests completed (╥﹏╥)...\n");
     return (0);

@@ -26,6 +26,7 @@ void	test_ft_putendl_fd(void);
 void	test_ft_putnbr_fd(void);
 void	test_ft_putstr_fd(void);
 void	test_ft_strchr(void);
+void	test_ft_striteri(void);
 void	test_ft_strjoin(void);
 void	test_ft_strlcat(void);
 void	test_ft_strlcpy(void);

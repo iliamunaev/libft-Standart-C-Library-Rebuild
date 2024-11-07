@@ -122,8 +122,12 @@ int	main(void)
 	test_ft_strjoin();
 	printf("\n");
 
+	printf("***Running tests for ft_striteri()***\n");
+	test_ft_striteri();
+	printf("\n");
+
 	// -----End of tets ----- //
 
-    printf(" Tests completed (╥﹏╥)...\n");
+    printf("Tests completed (╥﹏╥)...\n");
     return (0);
 }

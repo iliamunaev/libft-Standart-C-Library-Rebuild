@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:12:34 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 14:52:15 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:57:29 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));

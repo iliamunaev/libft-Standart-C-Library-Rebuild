@@ -102,6 +102,9 @@ int	main(void)
 	printf("\n***Running tests for ft_strtrim()***\n");
 	test_ft_strtrim();
 
+	printf("\n***Running tests for ft_substr()***\n");
+	test_ft_substr();
+
 	// -----End of tets ----- //
 
     printf("\nTests completed (╥﹏╥)...\n");

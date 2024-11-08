@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:35:18 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/06 23:35:27 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:54:55 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,22 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	little_len;
+	size_t	j;
+	size_t	i;
 
-	little_len = ft_strlen(little);
-	if (!little)
+	if (*little == '\0' || len == 0)
 		return ((char *)big);
-	if (len == 0 || len < little_len)
-		return (NULL);
-	while (big && len >= little_len)
+	i = 0;
+	while (big[i] && i < len)
 	{
-		if (ft_strncmp(big, little, little_len) == 0)
-			return ((char *)big);
-		big++;
-		len--;
+		j = 0;
+		while (i + j < len && big[i + j] == little[j])
+		{
+			if (little[j + 1] == '\0')
+				return ((char *)big + i);
+			j++;
+		}
+		i++;
 	}
-	return (NULL);
+	return (0);
 }

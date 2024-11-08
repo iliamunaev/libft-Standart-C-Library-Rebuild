@@ -4,3 +4,5 @@ temp/
 .vscode/
 obj/
 a.out
+libft-unit-tests/
+*.so

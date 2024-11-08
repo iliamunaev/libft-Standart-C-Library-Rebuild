@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:38:01 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/06 23:38:26 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:40:12 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,17 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t element, size_t size)
 {
-	void	*memptr;
+	char	*res;
+	size_t	n_bytes;
 
-	if (nmemb == 0 || size == 0)
+	n_bytes = size * element;
+	if (size && element && (n_bytes % size || n_bytes % element))
 		return (NULL);
-	memptr = malloc(nmemb * size);
-	if (!memptr)
+	res = malloc(n_bytes);
+	if (!res)
 		return (NULL);
-	ft_memset(memptr, 0, nmemb * size);
-	return (memptr);
+	ft_bzero(res, n_bytes);
+	return ((void *)res);
 }

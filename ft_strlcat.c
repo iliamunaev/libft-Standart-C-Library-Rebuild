@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:14:26 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/06 23:28:40 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:39:16 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	destl;
-	size_t	srcl;
 	size_t	i;
 
-	destl = ft_strlen(dest);
-	srcl = ft_strlen(src);
+	destl = 0;
+	while (destl < size && dest[destl])
+		destl++;
 	i = 0;
-	if (size == 0)
-		return (destl + srcl);
-	if (size <= destl)
-		return (size + srcl);
-	while (src[i] && (destl + i) < (size - 1))
+	while ((destl + i + 1) < size && src[i])
 	{
 		dest[destl + i] = src[i];
 		i++;
 	}
-	dest[destl + i] = '\0';
-	return (destl + srcl);
+	if (destl < size)
+		dest[destl + i] = '\0';
+	while (src[i])
+		i++;
+	return (destl + i);
 }

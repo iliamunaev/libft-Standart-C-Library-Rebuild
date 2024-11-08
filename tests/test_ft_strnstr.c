@@ -114,4 +114,12 @@ void test_ft_strnstr(void) {
     result_ft = ft_strnstr(big, little, 50);
     expected = (char *)(big + 3);  // Expected to return pointer to "rt"
     IM_ASSERT_PTR_EQUAL(result_ft, expected);
+
+    // ft_strnstr(((void*)0), "fake", 3);
+    big = NULL;
+    little = "rt";
+    result_ft = ft_strnstr(big, little, 50);
+    expected = (char *)(big + 3);  // Expected to return pointer to "rt"
+    IM_ASSERT_PTR_EQUAL(result_ft, expected);
+
 }

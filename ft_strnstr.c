@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:35:18 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/08 14:54:55 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/11 11:14:19 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 	size_t	i;
 
-	if (*little == '\0' || len == 0)
+	if (*little == '\0')
 		return ((char *)big);
+	if (len == 0)
+		return (0);
 	i = 0;
 	while (big[i] && i < len)
 	{

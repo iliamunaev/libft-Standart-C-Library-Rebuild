@@ -6,3 +6,7 @@ obj/
 a.out
 libft-unit-tests/
 *.so
+imtest42/
+*.sh
+*.so
+

@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:36:33 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 17:38:29 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/17 21:52:29 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	sign;
+	int			sign;
+	long long	num;
 
 	num = 0;
 	sign = 1;

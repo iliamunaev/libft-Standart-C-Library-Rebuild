@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:12:19 by imunaev-          #+#    #+#             */
-/*   Updated: 2024/11/07 14:12:22 by imunaev-         ###   ########.fr       */
+/*   Updated: 2024/11/17 22:06:24 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	unsigned int	slen;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	slen = ft_strlen(s);
 	if (!s || !f)

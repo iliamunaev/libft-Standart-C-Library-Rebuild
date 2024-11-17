@@ -82,3 +82,8 @@ fclean: clean
 
 # Clean and rebuild the project
 re: fclean all
+
+# unit test
+#so:
+#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+#	gcc -nostartfiles -shared -o libft.so $(OBJ)

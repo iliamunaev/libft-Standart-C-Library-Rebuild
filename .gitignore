@@ -9,4 +9,6 @@ libft-unit-tests/
 imtest42/
 *.sh
 *.so
+utest/
+warmachuintester/
 

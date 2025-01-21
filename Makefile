@@ -44,8 +44,12 @@ LIBFT_SRC = ft_atoi.c \
 PRINTF_SRC = ft_printf/ft_printf.c \
              ft_printf/ft_printf_utils.c
 
+# ft_printf source files
+GET_N_LINE_SRC = get_next_line/get_next_line.c \
+                get_next_line/get_next_line_utils.c
+
 # Combine all source files
-SRC = $(LIBFT_SRC) $(PRINTF_SRC)
+SRC = $(LIBFT_SRC) $(PRINTF_SRC) $(GET_N_LINE_SRC)
 
 # Object files directory
 OBJ_DIR = obj

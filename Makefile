@@ -27,6 +27,7 @@ LIBFT_SRC = ft_atoi.c \
             ft_strchr.c \
             ft_striteri.c \
             ft_strjoin.c \
+            ft_strcmp.c \
             ft_strdup.c \
             ft_strlcat.c \
             ft_strlcpy.c \
@@ -38,7 +39,9 @@ LIBFT_SRC = ft_atoi.c \
             ft_strtrim.c \
             ft_tolower.c \
             ft_toupper.c \
-            ft_isspace.c
+            ft_isspace.c \
+            ft_strncpy.c \
+            ft_strcpy.c
 
 # ft_printf source files
 PRINTF_SRC = ft_printf/ft_printf.c \

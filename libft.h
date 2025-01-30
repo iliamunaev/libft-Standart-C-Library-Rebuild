@@ -58,6 +58,7 @@ ssize_t	ft_printf(const char *format, ...);
 char	*get_next_line(int fd);
 void	ft_strcpy(char *dest, const char *src);
 void	ft_strncpy(char *dest, const char *src, size_t n);
+int	ft_strcmp(char *s1, char *s2);
 void	ft_print_bits_int(int num);
 int		ft_is_upper_alpha(int c);
 int		ft_is_lower_alpha(int c);

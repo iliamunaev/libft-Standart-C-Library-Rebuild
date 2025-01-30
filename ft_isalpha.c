@@ -6,10 +6,11 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:03:44 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/01/18 12:07:56 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:45:45 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /**
  * @brief Checks if a character is alphabetic.
  *
@@ -21,5 +22,5 @@
  */
 int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	return (ft_is_lower_alpha(c) || ft_is_upper_alpha(c));
 }

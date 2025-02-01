@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@studen.hive.fi>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:12:34 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/02/01 14:51:33 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:18:56 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int		ft_is_lower_alpha(int c);
 int		ft_atoi_base(const char *s, int base);
 int		ft_parse_char_arr(char *arr, char c);
 int		ft_parse_char_2d_arr(char **arr, char c);
+bool	ft_is_char_arr_solid(char *arr, char c);
 
 #endif //LIBFT_H

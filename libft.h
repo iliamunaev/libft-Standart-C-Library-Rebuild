@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: imunaev- <imunaev-@studen.hive.fi>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:12:34 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/01/30 23:48:41 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/02/01 14:51:33 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ ssize_t	ft_printf(const char *format, ...);
 char	*get_next_line(int fd);
 void	ft_strcpy(char *dest, const char *src);
 void	ft_strncpy(char *dest, const char *src, size_t n);
-int	ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 void	ft_print_bits_int(int num);
 int		ft_is_upper_alpha(int c);
 int		ft_is_lower_alpha(int c);
 int		ft_atoi_base(const char *s, int base);
+int		ft_parse_char_arr(char *arr, char c);
+int		ft_parse_char_2d_arr(char **arr, char c);
 
 #endif //LIBFT_H

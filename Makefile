@@ -49,7 +49,8 @@ LIBFT_SRC = ft_atoi.c \
             ft_parse_char_2d_arr.c \
             ft_parse_char_arr.c \
             ft_is_char_arr_solid.c \
-            ft_realloc.c
+            ft_realloc.c \
+            ft_free_arrstrs.c
 
 # ft_printf source files
 PRINTF_SRC = ft_printf/ft_printf.c \

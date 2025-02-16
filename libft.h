@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 23:12:34 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/02/06 21:46:54 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/02/16 22:57:13 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int		ft_parse_char_arr(char *arr, char c);
 int		ft_parse_char_2d_arr(char **arr, char c);
 bool	ft_is_char_arr_solid(char *arr, char c);
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+void	ft_free_arrstrs(char **arr);
 
 #endif //LIBFT_H

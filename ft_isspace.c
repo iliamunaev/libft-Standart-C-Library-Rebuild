@@ -6,10 +6,11 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:48:35 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/01/18 11:50:01 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:33:53 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /**
  * @brief Checks if a character is a whitespace character.
  *

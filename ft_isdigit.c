@@ -6,10 +6,11 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:53:37 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/01/18 12:08:06 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:32:57 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 /**
  * @brief Checks if a character is a numeric digit.
  *

@@ -86,8 +86,10 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!read_until_newline(fd, &temp_buf))
-		return (NULL);
+		return (free(temp_buf), temp_buf = NULL, NULL);
 	line = extract_line(temp_buf);
+	if (!line)
+		return (free(temp_buf), temp_buf = NULL, NULL);
 	temp_buf = update_temp_buf(temp_buf);
 	return (line);
 }
